@@ -6,7 +6,7 @@ Develop an API that moves a rover around on a Grid.
 4. L and R allow the rover to rotate left and right. 
 5. M allows the rover to move one point in the current direction. 
 6. The rover receives a char array of commands eg RMMLM and returns the finishing point eg 2:1:N
-7. The rover wraps around if it reaches the end of th grid
+7. The rover wraps around if it reaches the end of the grid
 8. The grid may have obstacles. If a given sequence of commands encounters an obstacle, the rover moves up to the last
 possible point, and reports the obstacle eg 0:2:2:N
    

@@ -64,4 +64,9 @@ class RoverShouldTest {
     void moveUpThriceOnYAxis() {
         assertThat(rover.execute("MMM"), is("0:3:N"));
     }
+
+    @Test
+    void roverWrapsAroundFromTopToBottomWhenAtTopOfGrid() {
+        assertThat(rover.execute("MMMMMMMMMM"), is("0:0:N"));
+    }
 }
