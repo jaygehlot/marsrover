@@ -66,7 +66,13 @@ class RoverShouldTest {
     }
 
     @Test
-    void roverWrapsAroundFromTopToBottomWhenAtTopOfGrid() {
+    void roverWrapsAroundFromTopToBottomWhenAtTopOfGridHittingMaxHeight() {
         assertThat(rover.execute("MMMMMMMMMM"), is("0:0:N"));
+    }
+
+    @Test
+    void roverWrapsAroundFromTopToBottomContinuingAfterReachingMaxHeight() {
+        //so goes to end of the grid x=10 and continues another 2 steps
+        assertThat(rover.execute("MMMMMMMMMMMM"), is("0:2:N"));
     }
 }
