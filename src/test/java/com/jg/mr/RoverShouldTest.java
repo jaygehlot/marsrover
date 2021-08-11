@@ -59,6 +59,4 @@ class RoverShouldTest {
     void moveUpOneOnYAxis() {
         assertThat(rover.execute("M"), is("0:1:N"));
     }
-
-
 }
