@@ -8,13 +8,13 @@ public class Rover {
     public String execute(String commands) {
         for (char c : commands.toCharArray()) {
             if (c == 'R') {
-                //facing = rotateToRight();
                 eDirection = eDirection.right();
-                facing = eDirection.value;
+                facing = eDirection.value();
 
             }
             if (c == 'L') {
-                facing = rotateToLeft();
+                eDirection = eDirection.left();
+                facing = eDirection.value();
             }
         }
         return "0:0:" + facing;
@@ -44,12 +44,24 @@ public class Rover {
         }
 
         public Facing right() {
-            for(Facing facing :values()) {
-                if (facing.value.equals(this.rightOfValue)) {
+            return rotationToThe(rightOfValue);
+        }
+
+        public Facing left() {
+            return rotationToThe(leftOfValue);
+        }
+
+        private Facing rotationToThe(String rotationDirection) {
+            for (Facing facing : values()) {
+                if (facing.value.equals(rotationDirection)) {
                     return facing;
                 }
             }
             return null;
+        }
+
+        public String value() {
+            return value;
         }
     }
 }
