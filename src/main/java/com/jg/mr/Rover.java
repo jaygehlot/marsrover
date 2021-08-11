@@ -2,29 +2,19 @@ package com.jg.mr;
 
 public class Rover {
 
-    String facing = "N";
-    Facing eDirection = Facing.NORTH;
+    Facing facingDirection = Facing.NORTH;
 
     public String execute(String commands) {
         for (char c : commands.toCharArray()) {
             if (c == 'R') {
-                eDirection = eDirection.right();
-                facing = eDirection.value();
+                facingDirection = facingDirection.right();
 
             }
             if (c == 'L') {
-                eDirection = eDirection.left();
-                facing = eDirection.value();
+                facingDirection = facingDirection.left();
             }
         }
-        return "0:0:" + facing;
-    }
-
-    private String rotateToLeft() {
-        if (facing.equals("N")) return "W";
-        if (facing.equals("W")) return "S";
-        if (facing.equals("S")) return "E";
-        return "N";
+        return "0:0:" + facingDirection.value();
     }
 
     enum Facing {
