@@ -27,14 +27,6 @@ public class Rover {
         return "N";
     }
 
-    private String rotateToRight() {
-        if (facing.equals("N")) return "E";
-        if (facing.equals("E")) return "S";
-        if (facing.equals("S")) return "W";
-        return "N";
-    }
-
-
     enum Facing {
         NORTH("N", "W", "E"),
         EAST("E", "N", "S"),
