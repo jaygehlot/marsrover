@@ -3,6 +3,8 @@ package com.jg.mr;
 public class Rover {
 
     Facing facingDirection = Facing.NORTH;
+    private final int x = 0;
+    private final int y = 0;
 
     public String execute(String commands) {
         for (char c : commands.toCharArray()) {
@@ -14,6 +16,6 @@ public class Rover {
                 facingDirection = facingDirection.left();
             }
         }
-        return "0:0:" + facingDirection.value();
+        return x + ":" + y + ":" + facingDirection.value();
     }
 }
