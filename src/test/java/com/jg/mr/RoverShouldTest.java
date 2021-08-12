@@ -75,4 +75,10 @@ class RoverShouldTest {
         //so goes to end of the grid x=10 and continues another 2 steps
         assertThat(rover.execute("MMMMMMMMMMMM"), is("0:2:N"));
     }
+
+    @Test
+    void rotateRightMoveAlongOneOnXAxis() {
+        assertThat(rover.execute("RM"), is("1:0:E"));
+    }
+
 }
