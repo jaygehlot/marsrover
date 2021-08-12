@@ -99,8 +99,12 @@ class RoverShouldTest {
 
     @Test
     void rotateLeftMoveAlongOne() {
-        //so goes to end of the grid x=10 and continues another 2 steps
         assertThat(rover.execute("LM"), is("9:0:W"));
+    }
+
+    @Test
+    void rotateLeftMoveAlongFive() {
+        assertThat(rover.execute("LMMMMM"), is("5:0:W"));
     }
 
 }
