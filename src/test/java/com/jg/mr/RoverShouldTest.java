@@ -97,4 +97,10 @@ class RoverShouldTest {
         assertThat(rover.execute("RMMMMMMMMMMMM"), is("2:0:E"));
     }
 
+    @Test
+    void rotateLeftMoveAlongOne() {
+        //so goes to end of the grid x=10 and continues another 2 steps
+        assertThat(rover.execute("LM"), is("9:0:W"));
+    }
+
 }
