@@ -2,6 +2,8 @@ package com.jg.mr;
 
 public class Rover {
 
+    private static final int MAXIMUM_GRID_HEIGHT = 10;
+    private static final int MAXIMUM_GRID_WIDTH = 10;
     Facing facingDirection = Facing.NORTH;
     XYCoordinates coordinates= new XYCoordinates(0, 0);
 
@@ -25,13 +27,11 @@ public class Rover {
         int x = coordinates.getX();
         int y = coordinates.getY();
         if (facingDirection == Facing.NORTH) {
-            y = (y + 1) % 10;
+            y = (y + 1) % MAXIMUM_GRID_HEIGHT;
         }
         if (facingDirection == Facing.EAST) {
-            x +=1 ;
+            x = (x + 1) % MAXIMUM_GRID_WIDTH;
         }
         return new XYCoordinates(x, y);
     }
-
-
 }
