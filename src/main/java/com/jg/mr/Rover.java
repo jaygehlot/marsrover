@@ -22,11 +22,15 @@ public class Rover {
     }
 
     private XYCoordinates move() {
+        int x = coordinates.getX();
         int y = coordinates.getY();
         if (facingDirection == Facing.NORTH) {
             y = (y + 1) % 10;
         }
-        return new XYCoordinates(coordinates.getX(), y);
+        if (facingDirection == Facing.EAST) {
+            x +=1 ;
+        }
+        return new XYCoordinates(x, y);
     }
 
 

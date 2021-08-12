@@ -81,4 +81,14 @@ class RoverShouldTest {
         assertThat(rover.execute("RM"), is("1:0:E"));
     }
 
+    @Test
+    void rotateRightMoveAlongFiveOnXAxis() {
+        assertThat(rover.execute("RMMMMM"), is("5:0:E"));
+    }
+
+    @Test
+    void roverWrapsAroundFromLeftToRightWhenAtEndOfGridHittingMaxLength() {
+        assertThat(rover.execute("RMMMMMMMMMM"), is("0:0:E"));
+    }
+
 }
