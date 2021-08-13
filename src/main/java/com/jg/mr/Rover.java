@@ -23,6 +23,7 @@ public class Rover {
         return coordinates.getX() + ":" + coordinates.getY() + ":" + facingDirection.value();
     }
 
+    //TODO: This should probably be in a Grid class?
     private XYCoordinates move() {
         int x = coordinates.getX();
         int y = coordinates.getY();
