@@ -36,6 +36,10 @@ public class Rover {
         if (facingDirection == Facing.WEST) {
             x = (x > 0) ? x - 1 : MAXIMUM_GRID_WIDTH - 1;
         }
+
+        if (facingDirection == Facing.SOUTH) {
+            y = (y > 0) ? y - 1 : MAXIMUM_GRID_HEIGHT - 1;
+        }
         return new XYCoordinates(x, y);
     }
 }
