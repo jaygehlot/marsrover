@@ -4,7 +4,12 @@ public class Rover {
 
     Facing facingDirection = Facing.NORTH;
     XYCoordinates coordinates= new XYCoordinates(0, 0);
-    private RoverGrid roverGrid;
+
+    private final RoverGrid roverGrid;
+
+    public Rover(RoverGrid roverGrid) {
+        this.roverGrid = roverGrid;
+    }
 
     public String execute(String commands) {
         for (char c : commands.toCharArray()) {
@@ -16,8 +21,6 @@ public class Rover {
                 facingDirection = facingDirection.left();
             }
             if(c == 'M') {
-                //coordinates = move();
-                roverGrid = new RoverGrid();
                 coordinates = roverGrid.coordinateFor(coordinates, facingDirection);
             }
         }

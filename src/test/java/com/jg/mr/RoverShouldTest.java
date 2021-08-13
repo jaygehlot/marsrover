@@ -12,7 +12,8 @@ class RoverShouldTest {
 
     @BeforeEach
     void initialise() {
-        rover = new Rover();
+        RoverGrid roverGrid = new RoverGrid();
+        rover = new Rover(roverGrid);
     }
 
     @Test
