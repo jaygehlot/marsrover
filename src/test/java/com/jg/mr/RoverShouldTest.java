@@ -106,4 +106,9 @@ class RoverShouldTest {
     void rotateLeftMoveAlongFive() {
         assertThat(rover.execute("LMMMMM"), is("5:0:W"));
     }
+
+    @Test
+    void moveSouth() {
+        assertThat(rover.execute("LLM"), is("9:0:S"));
+    }
 }
