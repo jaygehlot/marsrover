@@ -4,9 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 
-import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -128,12 +126,21 @@ class RoverShouldTest {
     }
 
     @Test
-    void stopAtObstable() {
+    void stopAtObstableOnYAxis() {
         //obstable at x=0, y=4 so the rover stops at 0:3:N and goes no further
         XYCoordinates obstable = new XYCoordinates(0,4);
-        RoverGrid grid = new RoverGrid(singletonList(obstable));
+        RoverGrid grid = new RoverGrid(Arrays.asList(obstable));
         Rover rover = new Rover(grid);
         assertThat(rover.execute("MMMM"), is("0:3:N"));
+    }
+
+    @Test
+    void stopAtObstacleOnXAxis() {
+        XYCoordinates firstObstable = new XYCoordinates(2,0);
+        XYCoordinates secondObstable = new XYCoordinates(0,4);
+        RoverGrid grid = new RoverGrid(Arrays.asList(firstObstable, secondObstable));
+        Rover rover = new Rover(grid);
+        assertThat(rover.execute("RMMMMMMMMM"), is("1:0:E"));
     }
 
 }

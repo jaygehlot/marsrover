@@ -12,8 +12,8 @@ public class RoverGrid {
     RoverGrid() {
     }
 
-    public <T> RoverGrid(List<XYCoordinates> asList) {
-
+    RoverGrid(List<XYCoordinates> obstacles) {
+        this.obstacles = obstacles;
     }
 
     public XYCoordinates coordinateFor(XYCoordinates coordinates, Facing facingDirection) {
@@ -33,6 +33,10 @@ public class RoverGrid {
         if (facingDirection == Facing.SOUTH) {
             y = (y > 0) ? y - 1 : MAXIMUM_GRID_HEIGHT - 1;
         }
-        return new XYCoordinates(x, y);
+
+        XYCoordinates newCoordinate = new XYCoordinates(x, y);
+        return obstacles.contains(newCoordinate) ? coordinates : newCoordinate;
+
+//        return new XYCoordinates(x, y);
     }
 }
