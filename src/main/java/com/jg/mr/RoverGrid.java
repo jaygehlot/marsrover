@@ -1,8 +1,20 @@
 package com.jg.mr;
 
+import java.util.Collections;
+import java.util.List;
+
 public class RoverGrid {
     private static final int MAXIMUM_GRID_HEIGHT = 10;
     private static final int MAXIMUM_GRID_WIDTH = 10;
+
+    private List<XYCoordinates> obstacles = Collections.emptyList();
+
+    RoverGrid() {
+    }
+
+    public <T> RoverGrid(List<XYCoordinates> asList) {
+
+    }
 
     public XYCoordinates coordinateFor(XYCoordinates coordinates, Facing facingDirection) {
         int x = coordinates.getX();
