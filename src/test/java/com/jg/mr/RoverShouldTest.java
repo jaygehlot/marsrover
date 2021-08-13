@@ -108,7 +108,13 @@ class RoverShouldTest {
     }
 
     @Test
-    void moveSouth() {
-        assertThat(rover.execute("LLM"), is("9:0:S"));
+    void rotateLeftTwiceMoveSouthOnce() {
+        assertThat(rover.execute("LLM"), is("0:9:S"));
     }
+
+    @Test
+    void rotateLeftTwiceMoveSouthFiveTime() {
+        assertThat(rover.execute("LLMMMMM"), is("0:5:S"));
+    }
+
 }
