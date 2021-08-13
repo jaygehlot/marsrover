@@ -131,7 +131,7 @@ class RoverShouldTest {
         XYCoordinates obstable = new XYCoordinates(0,4);
         RoverGrid grid = new RoverGrid(Arrays.asList(obstable));
         Rover rover = new Rover(grid);
-        assertThat(rover.execute("MMMM"), is("0:3:N"));
+        assertThat(rover.execute("MMMM"), is("O:0:3:N"));
     }
 
     @Test
@@ -140,7 +140,7 @@ class RoverShouldTest {
         XYCoordinates secondObstable = new XYCoordinates(0,4);
         RoverGrid grid = new RoverGrid(Arrays.asList(firstObstable, secondObstable));
         Rover rover = new Rover(grid);
-        assertThat(rover.execute("RMMMMMMMMM"), is("1:0:E"));
+        assertThat(rover.execute("RMMMMMMMMM"), is("O:1:0:E"));
     }
 
 }
