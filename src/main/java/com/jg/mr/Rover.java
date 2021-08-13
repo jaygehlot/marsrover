@@ -15,7 +15,6 @@ public class Rover {
         for (char c : commands.toCharArray()) {
             if (c == 'R') {
                 facingDirection = facingDirection.right();
-
             }
             if (c == 'L') {
                 facingDirection = facingDirection.left();

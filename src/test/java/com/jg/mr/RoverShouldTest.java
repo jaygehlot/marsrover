@@ -118,4 +118,9 @@ class RoverShouldTest {
         assertThat(rover.execute("LLMMMMM"), is("0:5:S"));
     }
 
+    @Test
+    void rotateLeftAndRightWIthMovementInSingleCommand() {
+        assertThat(rover.execute("RMMLM"), is("2:1:N"));
+    }
+
 }
