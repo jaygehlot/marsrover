@@ -4,7 +4,6 @@ public class RoverGrid {
     private static final int MAXIMUM_GRID_HEIGHT = 10;
     private static final int MAXIMUM_GRID_WIDTH = 10;
 
-    //TODO: This should probably be in a Grid class?
     public XYCoordinates coordinateFor(XYCoordinates coordinates, Facing facingDirection) {
         int x = coordinates.getX();
         int y = coordinates.getY();
