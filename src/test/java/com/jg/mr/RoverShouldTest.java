@@ -136,6 +136,7 @@ class RoverShouldTest {
 
     @Test
     void stopAtObstacleOnXAxis() {
+        //obstable at x=2, y=0 so the rover stops at 1:0:E and goes no further
         XYCoordinates firstObstable = new XYCoordinates(2,0);
         XYCoordinates secondObstable = new XYCoordinates(0,4);
         RoverGrid grid = new RoverGrid(Arrays.asList(firstObstable, secondObstable));

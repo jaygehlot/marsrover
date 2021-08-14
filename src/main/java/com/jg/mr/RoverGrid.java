@@ -2,6 +2,7 @@ package com.jg.mr;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class RoverGrid {
     private static final int MAXIMUM_GRID_HEIGHT = 10;
@@ -16,7 +17,7 @@ public class RoverGrid {
         this.obstacles = obstacles;
     }
 
-    public XYCoordinates coordinateFor(XYCoordinates coordinates, Facing facingDirection) {
+    public Optional<XYCoordinates> coordinateFor(XYCoordinates coordinates, Facing facingDirection) {
         int x = coordinates.getX();
         int y = coordinates.getY();
         if (facingDirection == Facing.NORTH) {
@@ -35,8 +36,6 @@ public class RoverGrid {
         }
 
         XYCoordinates newCoordinate = new XYCoordinates(x, y);
-        return obstacles.contains(newCoordinate) ? coordinates : newCoordinate;
-
-//        return new XYCoordinates(x, y);
+        return obstacles.contains(newCoordinate) ? Optional.empty() : Optional.of(newCoordinate);
     }
 }

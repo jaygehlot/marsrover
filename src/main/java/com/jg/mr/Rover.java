@@ -1,5 +1,7 @@
 package com.jg.mr;
 
+import java.util.Optional;
+
 public class Rover {
 
     Facing facingDirection = Facing.NORTH;
@@ -12,6 +14,7 @@ public class Rover {
     }
 
     public String execute(String commands) {
+        String obstacleIndicator = "";
         for (char c : commands.toCharArray()) {
             if (c == 'R') {
                 facingDirection = facingDirection.right();
@@ -20,10 +23,14 @@ public class Rover {
                 facingDirection = facingDirection.left();
             }
             if(c == 'M') {
-                coordinates = roverGrid.coordinateFor(coordinates, facingDirection);
+                Optional<XYCoordinates> nextCoordinate = roverGrid.coordinateFor(coordinates, facingDirection);
+                nextCoordinate.ifPresent(xyCoordinates -> this.coordinates = xyCoordinates);
+                obstacleIndicator = nextCoordinate.isPresent() ? "" : "O:";
+
             }
         }
-        return coordinates.getX() + ":" + coordinates.getY() + ":" + facingDirection.value();
+
+        return obstacleIndicator + coordinates.getX() + ":" + coordinates.getY() + ":" + facingDirection.value();
     }
 
 }
