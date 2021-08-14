@@ -5,7 +5,7 @@ import java.util.Optional;
 public class Rover {
 
     Facing facingDirection = Facing.NORTH;
-    XYCoordinates coordinates= new XYCoordinates(0, 0);
+    XYCoordinates coordinates = new XYCoordinates(0, 0);
 
     private final RoverGrid roverGrid;
 
@@ -26,10 +26,11 @@ public class Rover {
                 Optional<XYCoordinates> nextCoordinate = roverGrid.coordinateFor(coordinates, facingDirection);
                 nextCoordinate.ifPresent(xyCoordinates -> this.coordinates = xyCoordinates);
                 obstacleIndicator = nextCoordinate.isPresent() ? "" : "O:";
-
+                if (!obstacleIndicator.isEmpty()) {
+                    break;
+                }
             }
         }
-
         return obstacleIndicator + coordinates.getX() + ":" + coordinates.getY() + ":" + facingDirection.value();
     }
 
